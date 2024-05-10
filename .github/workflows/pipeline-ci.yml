@@ -28,7 +28,7 @@ jobs:
         run: |
           mvn package test
       
-      # agregar lo de jacoco
+      # agregar lo de jacoco para calculo de covertura de test unitario se agrega dentro del pom
       
       - name: Setup Java JDK
         uses: actions/setup-java@v4.2.1
