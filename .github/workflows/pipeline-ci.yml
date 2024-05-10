@@ -68,3 +68,12 @@ jobs:
       - name: Docker Push
         run: |
           docker push lcalquin/microservicio-java:latest
+
+  deploy:
+      needs: build
+      runs-on: self-hosted
+      
+      steps:
+        - name: Despliegue
+          run: |
+            echo "despliegue"
