@@ -27,6 +27,10 @@ jobs:
       - name: Ejecucion Test Unitarios
         run: |
           mvn package test
+
+      - name: Jacoco Report
+        run: |
+          mvn jacoco:report
       
       # agregar lo de jacoco para calculo de covertura de test unitario se agrega dentro del pom
       
