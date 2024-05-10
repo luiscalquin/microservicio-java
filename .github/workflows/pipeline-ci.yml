@@ -81,3 +81,19 @@ jobs:
       - name: Despliegue
         run: |
           kubectl apply -f deploy.yaml
+
+  jmeter_test:
+    runs-on: self-hosted
+
+    steps:
+      
+    - name: Run JMeter tests
+      run: |
+        cd C:\apache-jmeter-5.6.3\bin
+        ./jmeter -n -t C:\apache-jmeter-5.6.3\test\test_plan.jmx -l C:\apache-jmeter-5.6.3\test\test-results.jtl
+      
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      with:
+          name: jmeter-results
+          path: C:\apache-jmeter-5.6.3\test\test-results.jt
