@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: microservicio-java
-        image: andresatl/microservicio-java:latest
+        image: luiscalquin/microservicio-java:latest
         ports:
         - containerPort: 8081
 
