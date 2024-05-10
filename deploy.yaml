@@ -16,7 +16,7 @@ spec:
       - name: microservicio-java
         image: lcalquin/microservicio-java:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 8001
 
 ---
 apiVersion: v1
