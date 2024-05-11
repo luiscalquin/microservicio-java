@@ -48,19 +48,19 @@ jobs:
           distribution: 'temurin'
           
       #- name: Analisis Codigo Estatico SonarCloud
-        #run: |
-          #mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
-          #-Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          #-Dsonar.host.url=https://sonarcloud.io \
-          #-Dsonar.organization=luiscalquin \
-          #-Dsonar.projectKey=luiscalquin_microservicio-java
-      #- name: SonarQube Quality Gate Check
-        #uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
-        #env:
-         #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-         #SONAR_HOST_URL: https://sonarcloud.io
-        #with:
-          #scanMetadataReportFile: target/sonar/report-task.txt
+        run: |
+          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.organization=luiscalquin \
+          -Dsonar.projectKey=luiscalquin_microservicio-java
+      - name: SonarQube Quality Gate Check
+        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          scanMetadataReportFile: target/sonar/report-task.txt
        
          
       - name: Docker Login
